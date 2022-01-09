@@ -18,8 +18,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//     return view('dashboard');
+// })->name('dashboard');
 
-Route::resource('users',UserController::class);
+Route::group(['middleware'=>'auth:sanctum'],function(){
+    Route::get('/dashboard',function(){
+        return view('dashboard');
+    })->name('dashboard');
+    Route::resource('users',UserController::class);
+});

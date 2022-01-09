@@ -14,6 +14,7 @@ Este é um projeto base desenvolvido em Laravel 8 com alguns recursos já implem
 - [Laravel 8](https://laravel.com/docs/8.x)
 - [Auth JetStream](https://jetstream.laravel.com/2.x/introduction.html).
 - [Request Validation PT-BR](https://github.com/LaravelLegends/pt-br-validator)
+- [tailwindtoolbox icons](https://www.tailwindtoolbox.com/icons)
 
 ## Configuração mínima
 
