@@ -1,0 +1,8 @@
+/* DATATABLE JS */
+
+.dataTables_wrapper {
+    padding:10px;
+}
+.dataTables_wrapper .dataTables_length select {
+    width: 70px;
+}
