@@ -15,4 +15,10 @@ Este é um projeto base desenvolvido em Laravel 8 com alguns recursos já implem
 - [Auth JetStream](https://jetstream.laravel.com/2.x/introduction.html).
 - [Request Validation PT-BR](https://github.com/LaravelLegends/pt-br-validator)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Configuração mínima
+
+Este é um projeto base desenvolvido em Laravel 8 com alguns recursos já implementados, recursos como:
+
+- PHP 7.4+
+- MySQL 5.7/MariaDB 10.4
+- Composer 2.1.9
