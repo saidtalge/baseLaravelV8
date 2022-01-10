@@ -8,6 +8,7 @@
     <div class="py-12">
         <div class="max-w-screen-2xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg" style='padding:10px;'>
+                    <x-jet-button class='active:bg-red-700'>Cadastrar</x-jet-button>
                     <table id='dataTableFormat' class="display min-w-full divide-y divide-gray-200 w-full">
                         <thead class="bg-gray-50">
                             <tr>
