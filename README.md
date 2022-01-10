@@ -24,3 +24,22 @@ Este é um projeto base desenvolvido em Laravel 8 com alguns recursos já implem
 - PHP 7.4+
 - MySQL 5.7/MariaDB 10.4
 - Composer 2.1.9
+
+## Instalação e Configuração
+
+Segue o passo a passo para a instalação e configuração desse projeto em um servidor WEB baseados nas configurações acima.
+
+1. Executar o *git clone https://github.com/saidtalge/baselaravel8.com.br.git* no servidor
+2. Entre na basta com o comando *cd baselaravel8.com.br*.
+3. Execute o *composer install* para instalação das dependências utilizadas no projeto.
+4. Crie o banco de dados, renomeia o arquivo *.env-example* para *.env* e insira as configurações do seu banco de dados.
+5. Execute o comando *php artisan key:generate* para criar uma chave
+6. Importe o arquivo *bd.sql* para o banco de dados criado anteriormente.
+7. Execute o servidor *php artisan serve*.
+8. Entre na aplicação com as credenciais *admin@localhost* e senha *12345678*.
+
+## Funcionalidades
+
+1. Autenticação por users.email e users.status
+2. Gerenciamento de Usuários
+
