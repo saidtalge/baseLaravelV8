@@ -7,8 +7,8 @@
 
     <div class="py-12">
         <div class="max-w-screen-2xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg" style='padding:10px;'>
-                    edit
+            <div class="overflow-hidden sm:rounded-lg" style='padding:10px;'>
+                @include('users.field')
             </div>
         </div>
     </div>
