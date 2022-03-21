@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PerfilController;
+use App\Http\Controllers\PermissoesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,4 +29,6 @@ Route::group(['middleware'=>'auth:sanctum'],function(){
         return view('dashboard');
     })->name('dashboard');
     Route::resource('users',UserController::class);
+    Route::resource('perfis',PerfilController::class);
+    Route::resource('permissoes',PermissoesController::class);
 });

@@ -38,6 +38,15 @@ Segue o passo a passo para a instalação e configuração desse projeto em um s
 7. Execute o servidor *php artisan serve*.
 8. Entre na aplicação com as credenciais *admin@localhost* e senha *12345678*.
 
+#Banco de dados MongoDB
+
+Caso utilize o banco de dados MongoDB, é necessário ativa-lo.
+
+1. Linux: instale a extensão php-mongodb
+2. Windows: Baixe o .dll em [https://pecl.php.net/package/mongodb](https://pecl.php.net/package/mongodb) e adicione a extension=mongodb no php.ini
+3. Instale a dependência *composer require jenssegers/mongodb 3.8*
+
+
 ## Funcionalidades
 
 1. Autenticação por users.email e users.status

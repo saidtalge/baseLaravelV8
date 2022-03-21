@@ -5,10 +5,16 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-screen-2xl mx-auto sm:px-6 lg:px-8">
-            <div class="overflow-hidden sm:rounded-lg" style='padding:10px;'>
-                @include('users.field')
+    <div class="py-12 mt-4">
+        <div class="card">
+            <div class="card-body">
+                                
+                <x-jet-validation-errors class="mb-4" />
+                    <form action="{{ route('users.update',[$user]) }}" method="POST" class=''>
+                        @csrf
+                        @method('PUT')
+                        @include('users.field')
+                    </form>
             </div>
         </div>
     </div>
