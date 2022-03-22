@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\Auth\LoginController;
+use App\Http\Controllers\API\PerfilController;
 use App\Http\Controllers\API\UserController;
 
 /*
@@ -23,3 +24,4 @@ Route::prefix('auth')->group(function(){
 });
 
 Route::resource('/users',UserController::class);
+Route::resource('/perfis',PerfilController::class);
