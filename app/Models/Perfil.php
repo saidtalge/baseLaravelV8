@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Permissoes;
 
 class Perfil extends Model
 {
@@ -13,4 +14,9 @@ class Perfil extends Model
     protected $fillable = [
         'name'
     ];
+
+    public function permissoes()
+    {
+        return $this->hasMany(Permissoes::class);
+    }
 }

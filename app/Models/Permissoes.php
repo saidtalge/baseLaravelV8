@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Permissoes extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'routes',
+        'perfil_id',
+        'rules'
+    ];
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Perfil;
+use App\Models\Permissoes;
 use Illuminate\Http\Request;
 
 class PerfilController extends Controller
@@ -25,6 +26,7 @@ class PerfilController extends Controller
     public function show($id)
     {
         if(!$perfis = Perfil::find($id)) abort(501,'Perfil não encontrado!');
+        $perfis->permissoes = $perfis->permissoes;
         return response()->json($perfis,201);
     }
 
