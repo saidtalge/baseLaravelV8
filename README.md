@@ -16,6 +16,8 @@ Este é um projeto base desenvolvido em Laravel 8 com alguns recursos já implem
 - [Request Validation PT-BR](https://github.com/LaravelLegends/pt-br-validator)
 - [tailwindtoolbox icons](https://www.tailwindtoolbox.com/icons)
 - [DataTables JS](https://datatables.net/)
+- [jQuery Mask Plugin](https://github.com/igorescobar/jQuery-Mask-Plugin)
+- [Laravel Passport OAuth2](https://laravel.com/docs/8.x/passport)
 
 ## Configuração mínima
 
@@ -34,21 +36,16 @@ Segue o passo a passo para a instalação e configuração desse projeto em um s
 3. Execute o *composer install* para instalação das dependências utilizadas no projeto.
 4. Crie o banco de dados, renomeia o arquivo *.env-example* para *.env* e insira as configurações do seu banco de dados.
 5. Execute o comando *php artisan key:generate* para criar uma chave
-6. Importe o arquivo *bd.sql* para o banco de dados criado anteriormente.
-7. Execute o servidor *php artisan serve*.
+6. Execute *php artisan migrate* para importar todos os dados ao banco de dados.
+7. Execute o servidor *php artisan serve*. (Disponível para Livewire)
 8. Entre na aplicação com as credenciais *admin@localhost* e senha *12345678*.
-
-#Banco de dados MongoDB
-
-Caso utilize o banco de dados MongoDB, é necessário ativa-lo.
-
-1. Linux: instale a extensão php-mongodb
-2. Windows: Baixe o .dll em [https://pecl.php.net/package/mongodb](https://pecl.php.net/package/mongodb) e adicione a extension=mongodb no php.ini
-3. Instale a dependência *composer require jenssegers/mongodb 3.8*
-
 
 ## Funcionalidades
 
+Segue abaixo as implementações feitas no projeto. Essas implemantações foram feitas tanto para consumo via *API Rest* como *Livewire*.
+
 1. Autenticação por users.email e users.status
 2. Gerenciamento de Usuários
+3. Gerenciamento de Perfis
+4. Gerenciamento de Permissões por Rotas
 

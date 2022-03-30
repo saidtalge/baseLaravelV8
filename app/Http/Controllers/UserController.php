@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Perfil;
 use Illuminate\Http\Request;
-
 use app\Models\User;
 
 class UserController extends Controller
@@ -26,7 +26,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        $perfis = Perfil::all();
+        return view('users.create')->with('perfis',$perfis);
     }
 
     /**
@@ -37,7 +38,16 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required',
+        ]);
+        $input = $request->all();
+        $input['password'] = bcrypt($input['password']);
+        $oper = User::create($input);
+        if(!$oper) abort(501,'Falha na inserção do registro');
+        return redirect()->route('users.create');
     }
 
     /**
