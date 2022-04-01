@@ -45,6 +45,7 @@ class UserController extends Controller
         ]);
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
+        dd($input);
         $oper = User::create($input);
         if(!$oper) abort(501,'Falha na inserção do registro');
         return redirect()->route('users.create');

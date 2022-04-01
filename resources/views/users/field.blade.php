@@ -23,18 +23,6 @@
       </select>
     </div>
     <div class="md:col-span-2">
-      <label for="telefone" class="block text-sm font-medium text-gray-700">Telefone</label>
-      <input type="text" name="telefone" id="telefone" autocomplete="telefone" value="{{ $user->telefone ?? '' }}" class="phone_with_ddd h-10 border border-dark-500 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-    </div>
-  </div>
-
-</div>
-
-
-<div class="mt-10 sm:mt-2">
-  <div class="md:grid md:grid-cols-12 md:gap-6">
-
-    <div class="md:col-span-2">
 
       <label for="email" class="block text-sm font-medium text-gray-700">E-mail</label>
       <input type="text" name="email" id="email" autocomplete="email" value="{{ $user->email ?? '' }}" class="h-10 border border-dark-500 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
@@ -46,6 +34,7 @@
       <input type="password" name="password" id="password" autocomplete="password" class="h-10 border border-dark-500 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
     </div>
   </div>
+
 </div>
 
 
