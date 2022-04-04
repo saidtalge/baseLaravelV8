@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Perfil;
 use Illuminate\Http\Request;
 use app\Models\User;
+use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
@@ -38,17 +39,16 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validator = $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required',
         ]);
+    
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
-        dd($input);
         $oper = User::create($input);
-        if(!$oper) abort(501,'Falha na inserção do registro');
-        return redirect()->route('users.create');
+        return redirect()->route('users.index');
     }
 
     /**
@@ -71,7 +71,8 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('users.edit')->with('user',$user);
+        $perfis = Perfil::all();
+        return view('users.edit')->with('user',$user)->with('perfis',$perfis);
     }
 
     /**
@@ -82,8 +83,22 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
+    {        
+        
+        $validator = $request->validate([
+            'name' => 'required',
+            'email' => [
+                'required',
+                Rule::unique('users')->ignore($id)
+                ]
+        ]);
+
+        $input = $request->all();
+        if(isset($input['password']))$input['password'] = bcrypt($input['password']);
+        else unset($input['password']);
+        $user = User::find($id);
+        $user->update($input);
+        return redirect()->route('users.index');
     }
 
     /**

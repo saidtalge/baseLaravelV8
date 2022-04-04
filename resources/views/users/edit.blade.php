@@ -9,6 +9,13 @@
         <div class="max-w-screen-2xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg" style='padding:10px;'>
                     
+                @if($errors->any())
+                    <div class="bg-red-400 text-red-900 p-3 sm:rounded-lg my-3">
+                        @foreach ($errors->all() as $error)
+                        <p class="yellow-text font lato-normal center">{{ $error }}</p>
+                        @endforeach
+                    </div>
+                @endif
             <form action="{{ route('users.update',[$user]) }}" method="POST" class=''>
                         @csrf
                         @method('PUT')
