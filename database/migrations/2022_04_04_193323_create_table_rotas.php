@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 
-class CreatePermissoesTable extends Migration
+class CreateTableRotas extends Migration
 {
     /**
      * Run the migrations.
@@ -14,35 +14,26 @@ class CreatePermissoesTable extends Migration
      */
     public function up()
     {
-        Schema::create('permissoes', function (Blueprint $table) {
+        Schema::create('rotas', function (Blueprint $table) {
             $table->id();
-            $table->integer('rotas_id');
-            $table->unsignedBigInteger('perfil_id');
-            $table->foreign('perfil_id')->references('id')->on('perfil');
-            $table->integer('rules')->comment("regras de permissões em binario. 0 = não autorizado e 1 autorizado. Ordem Create, Update, Read, Other = Ex.:0010");
+            $table->string('name');
             $table->timestamps();
         });
 
-        DB::table('permissoes')->insert([
+        DB::table('rotas')->insert([
             [
                 "id" => 1,
-                "rotas_id" => 1,
-                "perfil_id" => 1,
-                "rules" => 1111,
+                "name" => "/dashboard",
                 "created_at" => now(),
                 "updated_at" => now()
             ],[
                 "id" => 2,
-                "rotas_id" => 2,
-                "perfil_id" => 1,
-                "rules" => 1111,
+                "name" => "/users",
                 "created_at" => now(),
                 "updated_at" => now()
             ],[
                 "id" => 3,
-                "rotas_id" => 3,
-                "perfil_id" => 1,
-                "rules" => 1111,
+                "name" => "/profiles",
                 "created_at" => now(),
                 "updated_at" => now()
             ]
@@ -56,6 +47,6 @@ class CreatePermissoesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('permissoes');
+        Schema::dropIfExists('table_rotas');
     }
 }

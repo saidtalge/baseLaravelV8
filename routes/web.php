@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\PermissoesController;
+use App\Http\Controllers\RotasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,4 +32,5 @@ Route::group(['middleware'=>'auth:sanctum'],function(){
     Route::resource('users',UserController::class);
     Route::resource('perfis',PerfilController::class);
     Route::resource('permissoes',PermissoesController::class);
+    Route::resource('rotas',RotasController::class);
 });

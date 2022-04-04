@@ -37,7 +37,7 @@ class CreateUsersTable extends Migration
                 "current_team_id" => null,
                 "perfil_id" => 0,
                 "status" => 1,
-                "password" => '$2y$10$votoVCMJ682Tvy2BOKleFuHUlZKr0p9AKBkKNOCKfZMJ2tcVhEPLe',
+                "password" => bcrypt('12345678'), //'$2y$10$votoVCMJ682Tvy2BOKleFuHUlZKr0p9AKBkKNOCKfZMJ2tcVhEPLe',
                 "profile_photo_path" => null
             ]
         );
