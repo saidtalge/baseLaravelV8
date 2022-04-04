@@ -17,6 +17,7 @@ class CreatePerfilTable extends Migration
         Schema::create('perfil', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
 
@@ -24,8 +25,9 @@ class CreatePerfilTable extends Migration
             [
                 "id" => 1,
                 "name" => "Administrador",
-                "created_at" => null,
-                "updated_at" => null
+                "status" => 1,
+                "created_at" => now(),
+                "updated_at" => now()
             ]
         );
     }

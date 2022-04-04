@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Perfil;
+use App\Models\Rotas;
 use Illuminate\Http\Request;
 use \Illuminate\Validation\ValidationException;
 
@@ -68,7 +69,9 @@ class PerfilController extends Controller
     public function edit($id)
     {
         $perfil = Perfil::find($id);
-        return view('perfis.edit')->with('perfil',$perfil);
+        $perfil->permissoes = $perfil->permissoes;
+        $rotas = Rotas::all();
+        return view('perfis.edit')->with('perfil',$perfil)->with('rotas',$rotas);
     }
 
     /**

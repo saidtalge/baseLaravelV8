@@ -22,6 +22,12 @@
                         @method('PUT')
                     @include('perfis.field')
                 </form>
+                <hr class="my-4">
+                <form action="{{ route('permissoes.update',[$perfil->id]) }}" method="POST" class=''>
+                        @csrf
+                        @method('PUT')
+                        @include('perfis.permissoes-field')
+                </form>
             </div>
         </div>
     </div>
