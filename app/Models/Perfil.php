@@ -12,7 +12,8 @@ class Perfil extends Model
     protected $table='perfil';
 
     protected $fillable = [
-        'name'
+        'name', 
+        'status'
     ];
 
     public function permissoes()

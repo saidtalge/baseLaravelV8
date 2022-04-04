@@ -36,15 +36,16 @@ class PerfilController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        try {
-            $request->validate([
-                'name' => 'required',
-                'status' => 'required'
-            ]);
-        } catch (ValidationException $e) {
-            dd($e);
-        }
+    {        
+        $request->validate([
+            'name' => 'required',
+            'status' => 'required'
+        ]);
+    
+        $input = $request->all();
+        Perfil::create($input);
+        return redirect()->route('perfis.index');
+
     }
 
     /**
@@ -64,9 +65,10 @@ class PerfilController extends Controller
      * @param  \App\Models\Perfil  $perfil
      * @return \Illuminate\Http\Response
      */
-    public function edit(Perfil $perfil)
+    public function edit($id)
     {
-        //
+        $perfil = Perfil::find($id);
+        return view('perfis.edit')->with('perfil',$perfil);
     }
 
     /**
@@ -76,9 +78,15 @@ class PerfilController extends Controller
      * @param  \App\Models\Perfil  $perfil
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Perfil $perfil)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'status' => 'required'
+        ]);
+        $perfil = Perfil::find($id);
+        $perfil->update($request->all());
+        return redirect()->route('perfis.index');
     }
 
     /**
