@@ -14,9 +14,14 @@
                 @foreach($rotas as $rota)
                   <tr>
                       <td>{{ $rota->name }}</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      @php
+                        $desired_object = $perfil->permissoes->filter(function($item) use ($rota) {
+                            echo $rota->id.' - '.$item->rotas_id.'<br>';
+                            return $item->rotas_id = $rota->id;
+                        })->first();
+                        
+                        var_dump($rota->id, $desired_object->rules);
+                      @endphp
                   </tr>
                 @endforeach
             </tbody>

@@ -16,10 +16,11 @@ class CreatePermissoesTable extends Migration
     {
         Schema::create('permissoes', function (Blueprint $table) {
             $table->id();
-            $table->integer('rotas_id');
+            $table->unsignedBigInteger('rotas_id');
+            $table->foreign('rotas_id')->references('id')->on('rotas');
             $table->unsignedBigInteger('perfil_id');
             $table->foreign('perfil_id')->references('id')->on('perfil');
-            $table->integer('rules')->comment("regras de permissões em binario. 0 = não autorizado e 1 autorizado. Ordem Create, Update, Read, Other = Ex.:0010");
+            $table->string('rules')->comment("regras de permissões em binario. 0 = não autorizado e 1 autorizado. Ordem Create, Update, Read, Other = Ex.:0010");
             $table->timestamps();
         });
 

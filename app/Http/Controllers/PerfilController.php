@@ -71,6 +71,7 @@ class PerfilController extends Controller
         $perfil = Perfil::find($id);
         $perfil->permissoes = $perfil->permissoes;
         $rotas = Rotas::all();
+        
         return view('perfis.edit')->with('perfil',$perfil)->with('rotas',$rotas);
     }
 
