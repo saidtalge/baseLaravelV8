@@ -5,9 +5,7 @@
                         <thead class="bg-gray-50">
                 <tr>
                   <td>Nome</td>
-                    <td width='10px'>Leitura</td>
-                    <td width='10px'>Inserção</td>
-                    <td width='10px'>Edição</td>
+                    <td width='30%'>Permissão</td>
                 </tr>
             </thead>
             <tbody>
@@ -16,12 +14,19 @@
                       <td>{{ $rota->name }}</td>
                       @php
                         $desired_object = $perfil->permissoes->filter(function($item) use ($rota) {
-                            echo $rota->id.' - '.$item->rotas_id.'<br>';
-                            return $item->rotas_id = $rota->id;
+                            if($rota->id == $item->rotas_id){
+                              return $item;
+                            }
                         })->first();
-                        
-                        var_dump($rota->id, $desired_object->rules);
                       @endphp
+                              <td>
+                                  <select name="{{ 'rota-'.$rota->id }}" id='' class='h-10 border border-dark-500 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md'>
+                                    <option value='0'>Nenhum</option>
+                                    <option value='1' {{ (isset($desired_object) && $desired_object->rules == 1)?'selected':'' }}>Leitura</option>
+                                    <option value='3' {{ (isset($desired_object) && $desired_object->rules == 3)?'selected':'' }}>Leitura/Inserção</option>
+                                    <option value='7' {{ (isset($desired_object) && $desired_object->rules == 7)?'selected':'' }}>Leitura/Inserção/Edição</option>
+                                  </select>
+                              </td>
                   </tr>
                 @endforeach
             </tbody>

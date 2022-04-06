@@ -67,9 +67,22 @@ class PermissoesController extends Controller
      * @param  \App\Models\Permissoes  $permissoes
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Permissoes $permissoes)
+    public function update(Request $request, $id)
     {
-        //
+        $input = $request->except(['_token','_method','dataTableFormat_length']);
+
+        foreach($input as $key => $values){
+            $rotas_id = intval(str_replace('rota-','',$key));
+            if($values == 0){ 
+                Permissoes::where('perfil_id',$id)->where('rotas_id',$rotas_id)->delete();
+            }else {
+                Permissoes::updateOrCreate(
+                    ['perfil_id' =>  $id,'rotas_id' =>  $rotas_id],
+                    ['perfil_id' =>  $id,'rotas_id' =>  $rotas_id,'rules' => $values]
+                );
+            }
+        }
+        return redirect()->back();
     }
 
     /**

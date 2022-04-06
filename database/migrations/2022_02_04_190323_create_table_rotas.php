@@ -33,7 +33,17 @@ class CreateTableRotas extends Migration
                 "updated_at" => now()
             ],[
                 "id" => 3,
-                "name" => "/profiles",
+                "name" => "/perfis",
+                "created_at" => now(),
+                "updated_at" => now()
+            ],[
+                "id" => 4,
+                "name" => "/rotas",
+                "created_at" => now(),
+                "updated_at" => now()
+            ],[
+                "id" => 5,
+                "name" => "/user/profile",
                 "created_at" => now(),
                 "updated_at" => now()
             ]

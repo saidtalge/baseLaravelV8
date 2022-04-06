@@ -9,7 +9,7 @@ class Permissoes extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'routes',
+        'rotas_id',
         'perfil_id',
         'rules'
     ];
